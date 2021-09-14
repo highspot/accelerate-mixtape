@@ -82,7 +82,7 @@ Run:
 ```shell
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
-##### Install Ruby
+##### Installing Ruby
 _Skip this if you already have Ruby and RVM installed_
 
 Download RVM (ruby version manager)
@@ -133,7 +133,8 @@ $ mv mixtape web
 ```
 Now lets install all our gems:
 ```
-bundle install
+$ cd web
+$ bundle install
 ```
 _If you don't have bundler installed run_:
 ```
@@ -163,7 +164,8 @@ Padrino.dependency_paths.unshift(
 #   Padrino.root("api/presenters/**/*.rb")
 )
 ```
-This tells Padrino to load any and all ruby files in the `common` directory.
+This tells Padrino to load any and all ruby files in the `common` directory
+when the app starts up.
 
 Now create `models` in the common directory then add the subdirectories
 `actions`, `commands`, `entities`, and `queries`:
@@ -198,11 +200,18 @@ cd stores
 mkdir database
 ```
 This database directory will contain the code that abstracts how we
-interact with our Mongo database
+interact with our Mongo database.
 
 ## Next steps
 
 Congrats! Setup is complete :)
+
+If you want you can run 
+```
+$ padrino s
+```
+to start up the server from the `web` directory. It will probably be an
+error page, but you can see Padrino is up and running!
 
 Up next is completing the exercises! You'll be able to find them in
  the folder named `exercises`. The first one will be creating that
