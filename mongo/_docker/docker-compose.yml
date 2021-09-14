@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  mongodb_container:
+    image: mongo:4.0
+    container_name: mixtape_mongodb
+    ports:
+      - 27018:27018
+    volumes:
+      - mongodb_data_container:/data/db
+    command:
+      - --port=27018
+      - --storageEngine=wiredTiger
+      - --replSet=rsm0
+    restart: always
+volumes:
+  mongodb_data_container:
